@@ -48,6 +48,7 @@ Page({
           'Content-Type': 'application/x-www-form-urlencoded'
         },
         data: {
+          id: getApp().globalData.user.id,
           email: this.data.email,
         },
         success: function (res) { 
@@ -186,6 +187,7 @@ Page({
               showCancel: false,
               success:function(res) {},
               complete: function(res){
+                getApp().globalData.user.email = _this.data.email;
                 if(getApp().globalData.user.user == 'student') {
                   wx.navigateTo({
                     url: '../student_mine/student_mine',
